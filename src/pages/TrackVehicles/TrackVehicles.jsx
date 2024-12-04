@@ -77,7 +77,7 @@ export default function TrackVehicles() {
         </div>
       </div>
       <div className={styles.mapContainer}>
-              <Map markers={locations}/>
+              <Map markers={filteredVehicles}/>
       </div>
     </div>
   );
