@@ -1,12 +1,14 @@
 import styles from "./TrackVehicles.module.css";
 import arrow_back from "../../assets/arrow_back.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { vehicles } from "./data";
 import VehicleTrackCard from "../../components/VehicleTrackCard/VehicleTrackCard";
 import { useNavigate } from "react-router-dom";
+import Map from "../../components/Map/Map";
 
 export default function TrackVehicles() {
   const [filter, setFilter] = useState("All");
+  // const [locations, setLocations] = useState([])
   const navigate = useNavigate()
   const getStatusCounts = () => {
     const counts = { All: vehicles.length };
@@ -18,6 +20,12 @@ export default function TrackVehicles() {
   const filteredVehicles = filter === "All" ? vehicles : vehicles.filter((vehicle) => vehicle.status === filter);
 
   const statusCounts = getStatusCounts();
+
+  const getVehiclePositions=()=>{
+    const vehicleLocations= filteredVehicles.map((vehicle)=>vehicle.location)
+    return vehicleLocations
+  }
+  const locations = getVehiclePositions()
 
   return (
     <div className={styles.container}>
@@ -67,6 +75,9 @@ export default function TrackVehicles() {
               ))}
           </div>
         </div>
+      </div>
+      <div className={styles.mapContainer}>
+              <Map markers={locations}/>
       </div>
     </div>
   );

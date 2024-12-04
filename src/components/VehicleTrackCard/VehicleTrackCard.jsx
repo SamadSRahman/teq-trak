@@ -4,6 +4,9 @@ import time from "../../assets/schedule.svg";
 import marker from "../../assets/distance.svg";
 import speed from '../../assets/speed.svg'
 import distance from '../../assets/avg_pace.svg'
+import PropTypes from "prop-types";
+
+
 export default function VehicleTrackCard({data}) {
   return (
     <div className={styles.container}>
@@ -49,3 +52,13 @@ export default function VehicleTrackCard({data}) {
     </div>
   );
 }
+VehicleTrackCard.propTypes = {
+    data: PropTypes.shape({
+      vehicleNumber: PropTypes.string.isRequired,
+      status: PropTypes.oneOf(["Moving", "Parked", "Idle", "Offline"]).isRequired,
+      runningTime: PropTypes.string.isRequired,
+      destination: PropTypes.string.isRequired,
+      distanceTravelled: PropTypes.string.isRequired,
+      speed: PropTypes.string.isRequired,
+    }).isRequired,
+  };

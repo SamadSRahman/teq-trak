@@ -1,12 +1,26 @@
 .container{
     height: calc(100vh-3.5rem);
     max-height: calc(100vh-3.5rem);
+    display: flex;
+    align-items: center;
+    background: #F4F3F3;
 
+
+}
+.mapContainer{
+    width: 70%;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid white;
+    
 }
 .sideBar{
     width: 30%;
     height: 100%;
     border-right: 0.5px solid #CCC;
+    background-color: white;
 
 }
 .sideBarHeader{

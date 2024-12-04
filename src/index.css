@@ -3,3 +3,7 @@ body{
     padding: 0px;
  font-family: "Mona sans", sans-serif;
 }
+.leaflet-container {
+    height: 90vh;
+    width: 100wh;
+  }
